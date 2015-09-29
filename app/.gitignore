@@ -1,1 +1,14 @@
 /build
+
+*.iml
+*.apk
+*.ap_
+*.class
+
+.settings/
+local.properties
+.idea
+
+gradle/
+.gradle/
+build/

@@ -5,3 +5,15 @@
 .DS_Store
 /build
 /captures
+
+.apk
+.ap_
+
+.class
+
+bin/
+gen/
+.setting/
+
+local.properties
+
