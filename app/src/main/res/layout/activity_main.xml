@@ -29,15 +29,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="동아리"
-                android:id="@+id/button1"
+                android:id="@+id/bt_dong"
                 android:layout_gravity="center_vertical" />
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-            android:text="동아리"
-            android:id="@+id/button2"
-            android:layout_gravity="center_vertical" />
+                android:text="행사"
+                android:id="@+id/bt_hang"
+                android:layout_gravity="center_vertical" />
 
 
         </LinearLayout>
@@ -50,15 +50,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="동아리"
-                android:id="@+id/button3"
+                android:text="관심 항목"
+                android:id="@+id/bt_fav"
                 android:layout_gravity="center_vertical" />
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="동아리"
-                android:id="@+id/button4"
+                android:text="커뮤니티"
+                android:id="@+id/bt_com"
                 android:layout_gravity="center_vertical" />
         </LinearLayout>
 </LinearLayout>
