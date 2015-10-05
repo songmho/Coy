@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group_my">
+        <item
+            android:id="@+id/mypage"
+            android:title="마이페이지"/>
+        <item
+            android:id="@+id/club_pick"
+            android:title="내가 찜한 동아리"/>
+    </group>
+    <group
+        android:id="@+id/group_club">
+        <item
+            android:id="@+id/all_club"
+            android:title="전체 동아리"/>
+        <item
+            android:id="@+id/club_event"
+            android:title="동아리 행사"/>
+    </group>
+    <group
+        android:id="@+id/group_setting">
+        <item
+            android:id="@+id/setting"
+            android:title="설정"/>
+    </group>
+</menu>

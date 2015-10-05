@@ -2,8 +2,10 @@ package com.asc.coy;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
 import com.parse.Parse;
 import com.parse.ParseACL;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by songmho on 2015-09-26.
@@ -14,6 +16,7 @@ public class Coy extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         Parse.initialize(this, APPLICATION_ID, CLIENT_KEY);
         ParseACL defaultACL=new ParseACL();
         defaultACL.setPublicReadAccess(true);
