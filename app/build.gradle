@@ -24,7 +24,20 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
+    }
+
+    def signFilePath=new String("../coy.jks")
+    File signFile = rootProject.file(signFilePath)
+    if(signFile.exists()){
+        signingConfigs{
+            release{
+                storeFile file(signFile)
+                storePassword "coy123"
+                keyAlias "coy"
+                keyPassword "coy123"
+            }
+        }
     }
     buildTypes {
         release {
