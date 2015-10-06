@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.parse.ParseUser;
 
@@ -41,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button bt_dong=(Button)findViewById(R.id.bt_dong);
-        Button bt_hang=(Button)findViewById(R.id.bt_hang);
-        Button bt_fav=(Button)findViewById(R.id.bt_fav);
-        Button bt_com=(Button)findViewById(R.id.bt_com);
+        LinearLayout bt_dong=(LinearLayout)findViewById(R.id.bt_dong);
+        LinearLayout bt_hang=(LinearLayout)findViewById(R.id.bt_hang);
+        LinearLayout bt_fav=(LinearLayout)findViewById(R.id.bt_fav);
+        LinearLayout bt_com=(LinearLayout)findViewById(R.id.bt_com);
 
         bt_dong.setOnClickListener(new View.OnClickListener() {
             @Override
