@@ -1,23 +1,26 @@
 package com.asc.coy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import com.parse.ParseUser;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
-
+    LinearLayout bt_club;
+    LinearLayout bt_event;
+    LinearLayout bt_fav;
+    LinearLayout bt_com;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,18 +45,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout bt_dong=(LinearLayout)findViewById(R.id.bt_dong);
-        LinearLayout bt_hang=(LinearLayout)findViewById(R.id.bt_hang);
-        LinearLayout bt_fav=(LinearLayout)findViewById(R.id.bt_fav);
-        LinearLayout bt_com=(LinearLayout)findViewById(R.id.bt_com);
+        bt_club =(LinearLayout)findViewById(R.id.bt_club);
+        bt_event =(LinearLayout)findViewById(R.id.bt_event);
+        bt_fav=(LinearLayout)findViewById(R.id.bt_fav);
+        bt_com=(LinearLayout)findViewById(R.id.bt_com);
 
-        bt_dong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+        bt_club.setOnClickListener(this);
+        bt_event.setOnClickListener(this);
+        bt_fav.setOnClickListener(this);
+        bt_com.setOnClickListener(this);
 
 
     }
@@ -115,5 +115,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bt_club:
+                startActivity(new Intent(MainActivity.this, All_Club_Acitivity.class));
+                break;
+            case R.id.bt_event:
+                Toast.makeText(getApplicationContext(),"진행중...",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.bt_fav:
+                startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
+                break;
+            case R.id.bt_com:
+                Toast.makeText(getApplicationContext(),"진행중...",Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }

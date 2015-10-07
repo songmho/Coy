@@ -36,8 +36,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="동아리"
-                android:id="@+id/bt_dong"
+                android:id="@+id/bt_club"
                 android:background="#f4bd18"
                 android:layout_gravity="center_vertical"
                 android:gravity="center">
@@ -62,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="행사"
-                android:id="@+id/bt_hang"
+                android:id="@+id/bt_event"
                 android:background="#7bbad7"
                 android:layout_gravity="center_vertical"
                 android:gravity="center">
@@ -97,7 +96,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="관심 항목"
                 android:background="#7dc3bc"
                 android:id="@+id/bt_fav"
                 android:layout_gravity="center_vertical"
