@@ -1,6 +1,7 @@
 package com.asc.coy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
@@ -24,6 +27,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences shpref=getSharedPreferences("myPref",0);
+        int count=shpref.getInt("Count",-100);
+        if(count==-100){
+            startActivity(new Intent(MainActivity.this,SplashActivity.class));
+            count=1;
+        }
+        else{
+            count++;
+        }SharedPreferences.Editor editor=shpref.edit();
+        editor.putInt("Count", count);
+        editor.commit();
+
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout=(DrawerLayout)findViewById(R.id.drawerlayout);
@@ -77,15 +94,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuItem.setChecked(true);
         switch (menuItem.getItemId()){
             case R.id.mypage:
+                startActivity(new Intent(MainActivity.this, MypageAcitivty.class));
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.club_pick:
+                startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.all_club:
+                startActivity(new Intent(MainActivity.this, All_Club_Acitivity.class));
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.club_event:
+                startActivity(new Intent(MainActivity.this, CalendarActivity.class));
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.setting:
@@ -124,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, All_Club_Acitivity.class));
                 break;
             case R.id.bt_event:
-                Toast.makeText(getApplicationContext(),"진행중...",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, CalendarActivity.class));
                 break;
             case R.id.bt_fav:
                 startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));

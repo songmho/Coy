@@ -23,6 +23,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".All_Club_Acitivity"
             android:screenOrientation="portrait">
             <meta-data
@@ -36,6 +39,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+
+        <activity android:name=".MypageAcitivty"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
+        <activity android:name=".CalendarActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="6cca913cf539d1727afcf91caf0e0ec1bb74547c" />
