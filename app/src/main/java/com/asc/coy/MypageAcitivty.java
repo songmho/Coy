@@ -1,6 +1,7 @@
 package com.asc.coy;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +18,10 @@ public class MypageAcitivty extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("마이페이지");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        CollapsingToolbarLayout collapsing_toolbar=(CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
+        collapsing_toolbar.setTitle("name");
     }
 }
