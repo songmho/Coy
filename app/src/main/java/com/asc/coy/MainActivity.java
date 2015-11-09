@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int count=shpref.getInt("Count",-100);
         if(count==-100){
             startActivity(new Intent(MainActivity.this,SplashActivity.class));
+            finish();
             count=1;
         }
         else{
