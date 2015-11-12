@@ -13,8 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -48,6 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navigationView=(NavigationView)findViewById(R.id.navigationView);
 
         setSupportActionBar(toolbar);
+
+
+        if (ParseUser.getCurrentUser()!=null) {
+            TextView name = (TextView) navigationView.findViewById(R.id.name);
+            name.setText(ParseUser.getCurrentUser().getString("name"));
+        }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -95,7 +105,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuItem.setChecked(true);
         switch (menuItem.getItemId()){
             case R.id.mypage:
-                startActivity(new Intent(MainActivity.this, MypageAcitivty.class));
+                final Intent intent_mypage = new Intent(MainActivity.this, MypageAcitivty.class);
+
+                intent_mypage.putExtra("name", ParseUser.getCurrentUser().getString("name"));
+                intent_mypage.putExtra("gender", ParseUser.getCurrentUser().getBoolean("ismale"));
+                intent_mypage.putExtra("department", ParseUser.getCurrentUser().getString("department"));
+                intent_mypage.putExtra("stu_num", ParseUser.getCurrentUser().getString("stu_num"));
+
+                startActivity(intent_mypage);
+
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.club_pick:
@@ -111,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.setting:
+                startActivity(new Intent(MainActivity.this, Login_Activity.class));
                 drawerLayout.closeDrawers();
                 return true;
         }
