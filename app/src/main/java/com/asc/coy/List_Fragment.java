@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +23,7 @@ import java.util.List;
 public class List_Fragment extends android.support.v4.app.Fragment {
 
     List<All_club_Item> items=new ArrayList<>();
+    String cur_sub;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,15 +35,32 @@ public class List_Fragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayout linearLayout=(LinearLayout)inflater.inflate(R.layout.fragment_list,container,false);
 
-        RecyclerView recyclerView=(RecyclerView)linearLayout.findViewById(R.id.recyclerView);
+        final RecyclerView recyclerView=(RecyclerView)linearLayout.findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext().getApplicationContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        byte[] d=new byte[10];
 
-        All_club_Item item=new All_club_Item(d,"TEST","TEST","TEST");
-        items.add(item);
-        recyclerView.setAdapter(new All_club_adapter(getActivity(),items,R.layout.item_all_club));
+
+        Bundle bundle=this.getArguments();
+        cur_sub =bundle.getString("cur_sub","");
+        final byte[] d = new byte[10];
+
+        items.clear();
+
+        ParseQuery<ParseObject> query=new ParseQuery<>("club");
+        query.whereEqualTo("Club_sub", cur_sub);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                for (ParseObject o : list) {
+                    All_club_Item item = new All_club_Item(d, o.getString("Club_name"), o.getString("Club_lotate"), o.getString("Club_intro"));
+                    items.add(item);
+                }
+
+                recyclerView.setAdapter(new All_club_adapter(getActivity(), items, R.layout.item_all_club));
+            }
+        });
+
         return linearLayout;
     }
 }
