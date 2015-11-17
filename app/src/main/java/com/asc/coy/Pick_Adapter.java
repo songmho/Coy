@@ -1,6 +1,7 @@
 package com.asc.coy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +46,15 @@ public class Pick_Adapter extends RecyclerView.Adapter {
         ((Item)holder).cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(context.getApplicationContext(),Club_Activity.class);
+                intent.putExtra("sub",item.getSub());
+                intent.putExtra("title",item.getTitle());
+                intent.putExtra("place",item.getPlace());
+                intent.putExtra("detail",item.getDetail());
+                intent.putExtra("leader",item.getLeader());
+                intent.putExtra("phone",item.getPhone());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
     }

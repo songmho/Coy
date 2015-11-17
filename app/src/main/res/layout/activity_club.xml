@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -63,60 +61,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="성   별 : "
+                    android:text="분   과 : "
                     android:textSize="18dp"/>
 
                 <TextView
-                    android:id="@+id/gender"
+                    android:id="@+id/sub"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="남"
+                    android:text="예술전시분과"
                     android:textSize="18dp"/>
 
             </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="학   과 : "
-                android:textSize="18dp"/>
-
-            <TextView
-                android:id="@+id/department"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="컴퓨터정보통신공학부"
-                android:textSize="18dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="학   번 : "
-                android:textSize="18dp"/>
-
-            <TextView
-                android:id="@+id/stu_num"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="2011253018"
-                android:textSize="18dp"/>
-
-        </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -127,17 +82,85 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="동아리 : "
+                    android:text="소   개 : "
                     android:textSize="18dp"/>
 
                 <TextView
-                    android:id="@+id/club"
+                    android:id="@+id/intro"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="18dp"/>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="위   치 : "
+                    android:textSize="18dp"/>
+
+                <TextView
+                    android:id="@+id/locate"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="18dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="회   장 : "
+                    android:textSize="18dp"/>
+
+                <TextView
+                    android:id="@+id/leader"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="마영진"
+                    android:textSize="18dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연락처 : "
+                    android:textSize="18dp"/>
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="01052203084"
+                    android:textSize="18dp"/>
+
+            </LinearLayout>
+
+
+
+
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

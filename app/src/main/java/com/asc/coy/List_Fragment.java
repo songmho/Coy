@@ -53,7 +53,8 @@ public class List_Fragment extends android.support.v4.app.Fragment {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
                 for (ParseObject o : list) {
-                    All_club_Item item = new All_club_Item(d, o.getString("Club_name"), o.getString("Club_lotate"), o.getString("Club_intro"));
+                    All_club_Item item = new All_club_Item(d, o.getString("Club_name"), o.getString("Club_lotate"), o.getString("Club_intro")
+                                                            ,o.getString("Club_leader"),o.getString("Club_phone"),o.getString("Club_sub"));
                     items.add(item);
                 }
 

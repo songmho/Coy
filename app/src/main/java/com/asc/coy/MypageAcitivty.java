@@ -9,6 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseRelation;
+import com.parse.ParseUser;
+
+import java.util.List;
+
 /**
  * Created by songmho on 2015-10-31.
  */
@@ -44,5 +52,17 @@ public class MypageAcitivty extends AppCompatActivity {
 
         department.setText(intent.getStringExtra("department"));
         stu_num.setText(intent.getStringExtra("stu_num"));
+
+        ParseRelation<ParseObject> q= ParseUser.getCurrentUser().getRelation("my_club");
+        q.getQuery().findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                String buf="";
+                for(ParseObject o :list){
+                    buf=buf+o.getString("Club_name") + "  ";
+                }
+                club.setText(buf);
+            }
+        });
     }
 }

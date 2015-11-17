@@ -64,6 +64,22 @@
             android:value=".Login_Activity"/>
         </activity>
 
+        <activity android:name=".Club_Activity"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".All_Club_Acitivity"/>
+        </activity>
+
+        <activity android:name=".Setup_Activity"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="6cca913cf539d1727afcf91caf0e0ec1bb74547c" />

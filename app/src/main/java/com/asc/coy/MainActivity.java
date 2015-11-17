@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawers();
                 return true;
             case R.id.setting:
-                startActivity(new Intent(MainActivity.this, Login_Activity.class));
+                startActivity(new Intent(MainActivity.this, Setup_Activity.class));
                 drawerLayout.closeDrawers();
                 return true;
         }
