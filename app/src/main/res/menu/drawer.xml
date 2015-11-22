@@ -5,24 +5,29 @@
         android:id="@+id/group_my">
         <item
             android:id="@+id/mypage"
-            android:title="마이페이지"/>
+            android:title="마이페이지"
+            android:icon="@drawable/mypage"/>
         <item
+            android:icon="@drawable/club_my"
             android:id="@+id/club_pick"
             android:title="내 동아리"/>
     </group>
     <group
         android:id="@+id/group_club">
         <item
+            android:icon="@drawable/club"
             android:id="@+id/all_club"
             android:title="전체 동아리"/>
         <item
             android:id="@+id/club_event"
-            android:title="동아리 행사"/>
+            android:title="동아리 행사"
+            android:icon="@drawable/event"/>
     </group>
     <group
         android:id="@+id/group_setting">
         <item
             android:id="@+id/setting"
-            android:title="설정"/>
+            android:title="설정"
+            android:icon="@drawable/settings"/>
     </group>
 </menu>

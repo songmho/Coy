@@ -3,6 +3,7 @@ package com.asc.coy;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,13 +13,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.GetCallback;
-import com.parse.ParseException;
-import com.parse.ParseQuery;
+import com.bumptech.glide.Glide;
 import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -78,6 +78,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_fav=(LinearLayout)findViewById(R.id.bt_fav);
         bt_com=(LinearLayout)findViewById(R.id.bt_com);
 
+        ImageView ImagClub = (ImageView) findViewById(R.id.img_club);
+        ImageView ImagEvent = (ImageView) findViewById(R.id.img_event);
+        ImageView ImagFav = (ImageView) findViewById(R.id.img_fav);
+        ImageView ImagCum = (ImageView) findViewById(R.id.img_cum);
+
+        Glide.with(this).load(R.drawable.img_club).into(ImagClub);
+        Glide.with(this).load(R.drawable.img_event).into(ImagEvent);
+        Glide.with(this).load(R.drawable.img_fav).into(ImagFav);
+        Glide.with(this).load(R.drawable.img_cum).into(ImagCum);
+        
         bt_club.setOnClickListener(this);
         bt_event.setOnClickListener(this);
         bt_fav.setOnClickListener(this);
@@ -105,29 +115,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuItem.setChecked(true);
         switch (menuItem.getItemId()){
             case R.id.mypage:
-                final Intent intent_mypage = new Intent(MainActivity.this, MypageAcitivty.class);
+                if(ParseUser.getCurrentUser()!=null) {
+                    final Intent intent_mypage = new Intent(MainActivity.this, MypageAcitivty.class);
 
-                intent_mypage.putExtra("name", ParseUser.getCurrentUser().getString("name"));
-                intent_mypage.putExtra("gender", ParseUser.getCurrentUser().getBoolean("ismale"));
-                intent_mypage.putExtra("department", ParseUser.getCurrentUser().getString("department"));
-                intent_mypage.putExtra("stu_num", ParseUser.getCurrentUser().getString("stu_num"));
+                    intent_mypage.putExtra("name", ParseUser.getCurrentUser().getString("name"));
+                    intent_mypage.putExtra("gender", ParseUser.getCurrentUser().getBoolean("ismale"));
+                    intent_mypage.putExtra("department", ParseUser.getCurrentUser().getString("department"));
+                    intent_mypage.putExtra("stu_num", ParseUser.getCurrentUser().getString("stu_num"));
 
-                startActivity(intent_mypage);
-
+                    startActivity(intent_mypage);
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "로그인해주세요", Toast.LENGTH_SHORT).show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(MainActivity.this,Login_Activity.class));
+                        }
+                    },1500);
+                }
                 drawerLayout.closeDrawers();
                 return true;
+
+
             case R.id.club_pick:
-                startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
+                if(ParseUser.getCurrentUser()!=null)
+                    startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
+                else{
+                    Toast.makeText(MainActivity.this, "로그인해주세요", Toast.LENGTH_SHORT).show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(MainActivity.this,Login_Activity.class));
+                        }
+                    },1000);
+                }
                 drawerLayout.closeDrawers();
                 return true;
+
+
             case R.id.all_club:
                 startActivity(new Intent(MainActivity.this, All_Club_Acitivity.class));
                 drawerLayout.closeDrawers();
                 return true;
+
+
             case R.id.club_event:
                 startActivity(new Intent(MainActivity.this, CalendarActivity.class));
                 drawerLayout.closeDrawers();
                 return true;
+
+
             case R.id.setting:
                 startActivity(new Intent(MainActivity.this, Setup_Activity.class));
                 drawerLayout.closeDrawers();
@@ -164,12 +202,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_club:
                 startActivity(new Intent(MainActivity.this, All_Club_Acitivity.class));
                 break;
+
             case R.id.bt_event:
                 startActivity(new Intent(MainActivity.this, CalendarActivity.class));
                 break;
+
             case R.id.bt_fav:
-                startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
+                if(ParseUser.getCurrentUser()!=null)
+                    startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
+                else{
+                    Toast.makeText(MainActivity.this, "로그인해주세요", Toast.LENGTH_SHORT).show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(MainActivity.this,Login_Activity.class));
+                        }
+                    },1000);
+                }
                 break;
+
             case R.id.bt_com:
                 Toast.makeText(getApplicationContext(),"진행중...",Toast.LENGTH_SHORT).show();
                 break;
