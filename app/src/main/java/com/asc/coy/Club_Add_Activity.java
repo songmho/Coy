@@ -52,20 +52,22 @@ public class Club_Add_Activity extends AppCompatActivity {
         relation.getQuery().findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
-                for(ParseObject o : list)
+                for (ParseObject o : list)
                     my_club.add(o.getString("Club_name"));
-            }
-        });
-        ParseQuery<ParseObject> query=new ParseQuery<>("club");
-        query.whereNotContainedIn("Club_name",my_club);
-        query.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> list, ParseException e) {
-                for(ParseObject o:list){
-                    Add_item item=new Add_item(o.getString("Club_name"),false);
-                    items.add(item);
-                }
-                recyclerView.setAdapter(new Add_Adapter(getApplicationContext(), items, R.layout.item_add));
+
+
+                ParseQuery<ParseObject> query = new ParseQuery<>("club");
+                query.whereNotContainedIn("Club_name", my_club);
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> list, ParseException e) {
+                        for (ParseObject o : list) {
+                            Add_item item = new Add_item(o.getString("Club_name"), false);
+                            items.add(item);
+                        }
+                        recyclerView.setAdapter(new Add_Adapter(getApplicationContext(), items, R.layout.item_add));
+                    }
+                });
             }
         });
 
@@ -100,6 +102,7 @@ public class Club_Add_Activity extends AppCompatActivity {
                 }
             });
             Toast.makeText(Club_Add_Activity.this, "추가", Toast.LENGTH_SHORT).show();
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
