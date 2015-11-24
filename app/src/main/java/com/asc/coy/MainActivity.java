@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LinearLayout bt_event;
     LinearLayout bt_fav;
     LinearLayout bt_com;
+
+    String _name=null;
+    boolean _gender;
+    String _department;
+    String _stu_num;
+    boolean islogin=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (ParseUser.getCurrentUser()!=null) {
             TextView name = (TextView) navigationView.findViewById(R.id.name);
-            name.setText(ParseUser.getCurrentUser().getString("name"));
+            _name=ParseUser.getCurrentUser().getString("name");
+            _department=ParseUser.getCurrentUser().getString("department");
+            _gender=ParseUser.getCurrentUser().getBoolean("ismale");
+            _stu_num=ParseUser.getCurrentUser().getString("stu_num");
+            islogin=true;
+            name.setText(_name);
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -115,13 +126,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuItem.setChecked(true);
         switch (menuItem.getItemId()){
             case R.id.mypage:
-                if(ParseUser.getCurrentUser()!=null) {
+                if(islogin) {
                     final Intent intent_mypage = new Intent(MainActivity.this, MypageAcitivty.class);
 
-                    intent_mypage.putExtra("name", ParseUser.getCurrentUser().getString("name"));
-                    intent_mypage.putExtra("gender", ParseUser.getCurrentUser().getBoolean("ismale"));
-                    intent_mypage.putExtra("department", ParseUser.getCurrentUser().getString("department"));
-                    intent_mypage.putExtra("stu_num", ParseUser.getCurrentUser().getString("stu_num"));
+                    intent_mypage.putExtra("name", _name);
+                    intent_mypage.putExtra("gender", _gender);
+                    intent_mypage.putExtra("department", _department);
+                    intent_mypage.putExtra("stu_num", _stu_num);
 
                     startActivity(intent_mypage);
                 }
@@ -132,14 +143,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void run() {
                             startActivity(new Intent(MainActivity.this,Login_Activity.class));
                         }
-                    },1500);
+                    },1000);
                 }
                 drawerLayout.closeDrawers();
                 return true;
 
 
             case R.id.club_pick:
-                if(ParseUser.getCurrentUser()!=null)
+                if(islogin)
                     startActivity(new Intent(MainActivity.this,Club_Pick_Acitivity.class));
                 else{
                     Toast.makeText(MainActivity.this, "로그인해주세요", Toast.LENGTH_SHORT).show();
@@ -222,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.bt_com:
-                Toast.makeText(getApplicationContext(),"진행중...",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"준비중...",Toast.LENGTH_SHORT).show();
                 break;
         }
     }

@@ -34,6 +34,8 @@ public class CalendarActivity extends AppCompatActivity implements RobotoCalenda
     private Calendar currentCalendar;
     RecyclerView recyclerView;
 
+    final byte[] bytes=new byte[10];
+
     ArrayList<Plan_item> items=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +81,7 @@ public class CalendarActivity extends AppCompatActivity implements RobotoCalenda
                     }
 
                     if(format.format(date).equals(o.getString("date"))){
-
-                        Plan_item item = new Plan_item(o.getString("Title"), o.getString("club"), o.getString("date"));
+                        Plan_item item = new Plan_item(bytes,o.getString("Title"), o.getString("club"), o.getString("date"),o.getString("Detail"));
                         items.add(item);
                     }
                 }
@@ -107,7 +108,7 @@ public class CalendarActivity extends AppCompatActivity implements RobotoCalenda
             @Override
             public void done(List<ParseObject> list, ParseException e) {
                 for(ParseObject o: list){
-                    Plan_item item = new Plan_item(o.getString("Title"), o.getString("club"), o.getString("date"));
+                    Plan_item item = new Plan_item(bytes,o.getString("Title"), o.getString("club"), o.getString("date"),o.getString("Detail"));
                     items.add(item);
                 }
 
@@ -120,18 +121,16 @@ public class CalendarActivity extends AppCompatActivity implements RobotoCalenda
 
     @Override
     public void onRightButtonClick() {
-        robotoCalendarView.initializeCalendar(currentCalendar);
-        currentMonthIndex++;
+    /*    currentMonthIndex++;
         updateCalendar();
-
+*/
     }
 
     @Override
     public void onLeftButtonClick() {
-        robotoCalendarView.initializeCalendar(currentCalendar);
-        currentMonthIndex--;
+ /*       currentMonthIndex--;
         updateCalendar();
-    }
+  */  }
 
     private void updateCalendar() {
         currentCalendar = Calendar.getInstance(Locale.getDefault());

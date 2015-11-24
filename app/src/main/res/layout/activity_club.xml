@@ -58,17 +58,18 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="분   과 : "
-                    android:textSize="18dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/sub"/>
+
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/sub"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="예술전시분과"
                     android:textSize="18dp"/>
 
             </LinearLayout>
@@ -79,13 +80,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="소   개 : "
-                    android:textSize="18dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/info"/>
+
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/intro"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -100,13 +103,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="위   치 : "
-                    android:textSize="18dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/locate"/>
+
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/locate"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -121,17 +126,17 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="회   장 : "
-                    android:textSize="18dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/leader"/>
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/leader"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="마영진"
                     android:textSize="18dp"/>
 
             </LinearLayout>
@@ -142,17 +147,18 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="연락처 : "
-                    android:textSize="18dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/phone"/>
+
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/phone"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="01052203084"
                     android:textSize="18dp"/>
 
             </LinearLayout>

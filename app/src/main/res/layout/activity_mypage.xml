@@ -60,17 +60,18 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="성   별 : "
-                    android:textSize="18dp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/gender"/>
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/gender"
-                    android:layout_width="250dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="남"
                     android:textSize="18dp"/>
 
             </LinearLayout>
@@ -78,20 +79,20 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="학   과 : "
-                android:textSize="18dp"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/department"/>
 
             <TextView
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
                 android:id="@+id/department"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="컴퓨터정보통신공학부"
                 android:textSize="18dp"/>
 
         </LinearLayout>
@@ -99,20 +100,21 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="학   번 : "
-                android:textSize="18dp"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/stu_num"/>
+
 
             <TextView
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
                 android:id="@+id/stu_num"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="2011253018"
                 android:textSize="18dp"/>
 
         </LinearLayout>
@@ -121,16 +123,19 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="동아리 : "
-                    android:textSize="18dp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/club_my"/>
+
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/club"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"

@@ -33,7 +33,7 @@ public class PlanAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        Plan_item item=items.get(position);
+        final Plan_item item=items.get(position);
         ((Item)holder).title.setText(item.getTitle());
         ((Item)holder).club.setText(item.getClub());
         ((Item)holder).date.setText(item.getDate());
@@ -41,6 +41,11 @@ public class PlanAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context,Plan_Detail_Activity.class);
+                intent.putExtra("image",item.getImage());
+                intent.putExtra("title",item.getTitle());
+                intent.putExtra("club",item.getClub());
+                intent.putExtra("date",item.getDate());
+                intent.putExtra("detail",item.getDetail());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
