@@ -26,10 +26,6 @@ public class Signup_Activity extends AppCompatActivity {
     EditText mail;
     EditText pass;
     EditText pass_check;
-    TextView user_name_null;
-    TextView mail_null;
-    TextView pass_null;
-    TextView pass_check_null;
     Button signup_btn;
 
 
@@ -49,10 +45,6 @@ public class Signup_Activity extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.pass);
         pass_check = (EditText) findViewById(R.id.pass_check);
 
-        user_name_null = (TextView) findViewById(R.id.user_name_null);
-        mail_null = (TextView) findViewById(R.id.mail_null);
-        pass_null = (TextView) findViewById(R.id.pass_null);
-        pass_check_null = (TextView) findViewById(R.id.pass_check_null);
 
         signup_btn = (Button) findViewById(R.id.signup_btn);
 
@@ -69,19 +61,19 @@ public class Signup_Activity extends AppCompatActivity {
                     public void done(ParseException e) {
                         if (e == null) {
                             Toast.makeText(getApplicationContext(), "가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Signup_Activity.this, MainActivity.class);
-                           /* intent.putExtra("name", String.valueOf(user_name.getText()));
-                            intent.putExtra("job", job);
-                            intent.putExtra("mydetail", "");
-                            intent.putExtra("myinfo", "");
-                            intent.putExtra("signup", 1);
-*/
+                            Intent intent = new Intent(Signup_Activity.this, My_edit_Activity.class);
+
+                            intent.putExtra("name", user_name.getText().toString());
+                            intent.putExtra("gender", "");
+                            intent.putExtra("department", "");
+                            intent.putExtra("stu_num", "");
                             startActivity(intent);
                             finish();
                         } else {
 //                                    Log.d("error", String.valueOf(e.getCode()));
                             if (e.getCode() == 202) {
-                                mail_null.setText("이미 존재하는 mail 주소입니다.");
+                                Toast.makeText(getApplicationContext(), "이미 존재하는 mail 주소입니다.", Toast.LENGTH_SHORT).show();
+
                             } else {
                                 Toast.makeText(getApplicationContext(), "문제가 발생하였습니다.", Toast.LENGTH_SHORT).show();
                             }//end else

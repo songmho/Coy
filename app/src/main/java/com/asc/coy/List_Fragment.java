@@ -48,6 +48,7 @@ public class List_Fragment extends android.support.v4.app.Fragment {
         items.clear();
 
         ParseQuery<ParseObject> query=new ParseQuery<>("club");
+        query.addAscendingOrder("Club_name");
         query.whereEqualTo("Club_sub", cur_sub);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override

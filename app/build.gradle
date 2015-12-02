@@ -20,14 +20,14 @@ repositories {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         applicationId "com.asc.coy"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
-        versionName "0.42"
+        versionName "0.63"
     }
 
     def signFilePath=new String("../coy.jks")

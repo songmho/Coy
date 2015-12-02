@@ -2,6 +2,8 @@ package com.asc.coy;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -20,6 +22,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseUser;
+
+import java.io.ByteArrayOutputStream;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     NavigationView navigationView;
@@ -62,6 +68,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (ParseUser.getCurrentUser()!=null) {
             TextView name = (TextView) navigationView.findViewById(R.id.name);
+            ImageView profile=(ImageView)navigationView.findViewById(R.id.profile);
+
+            String tempPath="data/data/com.asc.coy/files/profile.jpg";
+            Bitmap bm = BitmapFactory.decodeFile(tempPath);
+            if(bm!=null){
+                Glide.with(getApplicationContext()).load(bitmapTobyte(bm)).
+                        bitmapTransform(new CropCircleTransformation(getApplicationContext())).into(profile);
+            }
+            else{        Glide.with(getApplicationContext()).load(R.drawable.ss).
+                    bitmapTransform(new CropCircleTransformation(getApplicationContext())).into(profile);
+
+            }
             _name=ParseUser.getCurrentUser().getString("name");
             _department=ParseUser.getCurrentUser().getString("department");
             _gender=ParseUser.getCurrentUser().getBoolean("ismale");
@@ -103,7 +121,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_event.setOnClickListener(this);
         bt_fav.setOnClickListener(this);
         bt_com.setOnClickListener(this);
-
 
     }
 
@@ -233,8 +250,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.bt_com:
-                Toast.makeText(getApplicationContext(),"준비중...",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Community_Activity.class));
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(ParseUser.getCurrentUser()!=null)
+            islogin=true;
+        else
+            islogin=false;
+    }
+
+    private byte[] bitmapTobyte(Bitmap bm) {
+        ByteArrayOutputStream stream=new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+        byte[] bytes=stream.toByteArray();
+        return bytes;
     }
 }

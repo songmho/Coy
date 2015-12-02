@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".Coy"
         android:allowBackup="true"
@@ -72,6 +75,14 @@
                 android:value=".All_Club_Acitivity"/>
         </activity>
 
+        <activity android:name=".Search_Activity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".All_Club_Acitivity"/>
+
+        </activity>
+
         <activity android:name=".Setup_Activity"
             android:screenOrientation="portrait">
 
@@ -93,6 +104,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CalendarActivity"/>
         </activity>
+        <activity android:name=".My_edit_Activity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MypageAcitivty"/>
+        </activity>
+        <activity android:name=".Community_Activity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MypageAcitivty"/>
+        </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="6cca913cf539d1727afcf91caf0e0ec1bb74547c" />

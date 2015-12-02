@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/tool_bar"
+            android:id="@+id/toolbar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="24dp">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mypage_camera"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="#00FFFFFF"
+            app:border_color="@color/colorPrimary"
+            app:border_width="2dp"/>
+        <ImageView
+            android:id="@+id/my_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+    </FrameLayout>
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:hint="이름"/>
+</LinearLayout>
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="성별"
+android:textSize="15dp"
+android:layout_marginBottom="12dp"
+android:layout_marginLeft="16dp"
+android:layout_marginTop="12dp"/>
+
+<LinearLayout
+android:layout_gravity="bottom"
+android:layout_width="match_parent"
+android:layout_height="1.5dp"
+android:background="#CCCCCC"/>
+<RadioGroup
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:weightSum="4"
+android:id="@+id/fieldgroup"
+android:layout_gravity="center"
+android:layout_marginBottom="12dp"
+android:layout_marginLeft="16dp"
+android:layout_marginRight="16dp"
+android:layout_marginTop="12dp">
+
+<RadioButton
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="남"
+    android:id="@+id/field1"/>
+
+<RadioButton
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="여"
+    android:id="@+id/field2"/>
+</RadioGroup>
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="학과"
+android:id="@+id/info"
+android:textSize="15dp"
+android:layout_marginBottom="12dp"
+android:layout_marginLeft="16dp"
+android:layout_marginTop="12dp"/>
+<LinearLayout
+android:layout_gravity="bottom"
+android:layout_width="match_parent"
+android:layout_height="1.5dp"
+android:background="#CCCCCC"/>
+<EditText
+android:id="@+id/department"
+android:layout_width="320dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:textSize="17dp"
+android:layout_marginBottom="12dp"
+android:layout_marginLeft="16dp"
+android:layout_marginRight="16dp"
+android:layout_marginTop="12dp"/>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="학번"
+android:textSize="15dp"
+android:layout_marginBottom="12dp"
+android:layout_marginLeft="16dp"
+android:layout_marginTop="12dp"/>
+<LinearLayout
+android:layout_gravity="bottom"
+android:layout_width="match_parent"
+android:layout_height="1.5dp"
+android:background="#CCCCCC"/>
+<EditText
+android:id="@+id/stu_num"
+android:layout_width="320dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_marginBottom="12dp"
+android:layout_marginLeft="16dp"
+android:layout_marginRight="16dp"
+android:layout_marginTop="12dp"
+android:textSize="17dp"/>
+        <Button
+            android:id="@+id/yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:text="확인"/>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
