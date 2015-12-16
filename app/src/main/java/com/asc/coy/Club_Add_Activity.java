@@ -29,6 +29,8 @@ public class Club_Add_Activity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
     ArrayList<Add_item> items;
+    ArrayList<String> s;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +87,7 @@ public class Club_Add_Activity extends AppCompatActivity {
         if(item.getItemId()==R.id.menu_add){
 
             Add_Adapter a=(Add_Adapter)recyclerView.getAdapter();
-            ArrayList<String> s=a.getClub_names();
+            s=a.getClub_names();
 
             final ParseUser current=ParseUser.getCurrentUser();
             final ParseRelation<ParseObject> relation=current.getRelation("my_club");

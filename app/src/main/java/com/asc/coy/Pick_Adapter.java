@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -24,6 +25,7 @@ import com.parse.ParseUser;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by songmho on 2015-10-12.
@@ -49,7 +51,8 @@ public class Pick_Adapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final Club_Pick_Item item=items.get(position);
 
-        ((Item) holder).image.setImageBitmap(BitmapFactory.decodeByteArray(item.getImage(),0,item.getImage().length));
+        //((Item) holder).image.setImageBitmap(BitmapFactory.decodeByteArray(item.getImage(),0,item.getImage().length));
+        Glide.with(context).load(R.drawable.icon_club). bitmapTransform(new CropCircleTransformation(context.getApplicationContext())).into(((Item)holder).image);
         ((Item)holder).title.setText(item.getTitle());
         ((Item)holder).detail.setText(item.getDetail());
         ((Item)holder).cardView.setOnClickListener(new View.OnClickListener() {

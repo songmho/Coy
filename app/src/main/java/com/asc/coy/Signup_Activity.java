@@ -62,7 +62,7 @@ public class Signup_Activity extends AppCompatActivity {
                         if (e == null) {
                             Toast.makeText(getApplicationContext(), "가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Signup_Activity.this, My_edit_Activity.class);
-
+                            intent.setAction("android.intent.action.SIGN_UP");
                             intent.putExtra("name", user_name.getText().toString());
                             intent.putExtra("gender", "");
                             intent.putExtra("department", "");

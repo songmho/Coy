@@ -131,6 +131,8 @@ public class My_edit_Activity extends AppCompatActivity {
                         user.put("ismale", false);
                     user.saveInBackground();
                     Toast.makeText(My_edit_Activity.this, "저장되었습니다.", Toast.LENGTH_SHORT).show();
+                    if(getIntent().getAction()=="android.intent.action.SIGN_UP")
+                        startActivity(new Intent(My_edit_Activity.this,MainActivity.class));
                     finish();
                 }
                 else
